@@ -6,13 +6,12 @@
     "test": "npm run htmlhint && npm run stylelint && npm run prettier:check && npm run eslint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "htmlhint": "npx htmlhint \"**/*.html\"",
     "stylelint": "npx stylelint \"**/*.css\"",
     "prettier:check": "npx prettier --check .",
     "prettier:write": "npx prettier --write .",
     "eslint": "npx eslint \"**/*.js\"",
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build",                                        
     "start": "next start",
     "lint": "next lint"
   },
@@ -23,7 +22,8 @@
     "next-auth": "^4.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "styled-components": "^5.3.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",

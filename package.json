@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "npm run htmlhint && npm run stylelint && npm run prettier:check && npm run eslint",
+    "test": "npm run stylelint && npm run prettier:check && npm run eslint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "stylelint": "npx stylelint \"**/*.css\"",
@@ -11,7 +11,7 @@
     "prettier:write": "npx prettier --write .",
     "eslint": "npx eslint \"**/*.js\"",
     "dev": "next dev",
-    "build": "next build",                                        
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -30,6 +30,22 @@
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0",
     "postcss": "^8.4.12",
-    "tailwindcss": "^3.0.23"
-  }
+    "tailwindcss": "^3.0.23",
+    "prettier": "^2.5.1",
+    "stylelint": "^14.5.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^25.0.0"
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Musealo/capstone-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Musealo/capstone-project/issues"
+  },
+  "homepage": "https://github.com/Musealo/capstone-project#readme",
+  "description": ""
 }

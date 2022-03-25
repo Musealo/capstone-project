@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import CreateRoomButton from '../Components/createRoom/createRoomButton';
+import Button from '../Components/Button/Button';
 
 export default function LandingPage() {
   return (
@@ -17,11 +17,14 @@ export default function LandingPage() {
         good you know each other
       </p>
       </div>
-      <div>
+      
           <br/>
           <p className='text-text'>Sign in with Github</p>
-      <CreateRoomButton />
-      </div>
+      <Button props="./room" btnText="Sign in"/>
+      
+      
+      <Button props="./niklas" btnText="Create a room"/>
+      
     </div>
     </>
   );

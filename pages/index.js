@@ -2,7 +2,6 @@ import Head from 'next/head';
 import LandingPage from './home';
 
 
-
 export default function Home() {
   return (
     <>

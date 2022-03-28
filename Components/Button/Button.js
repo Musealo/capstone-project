@@ -1,16 +1,24 @@
 import Link from 'next/link';
 import React from 'react';
 import { useSession, getSession } from "next-auth/react"
+import { useRouter } from 'next/router'
 
 
 
 function Button(path, btnText) {
   const { data: session} = useSession()
+  const router = useRouter()
   
+  const handleClick = (e) => {
+    e.preventDefault()
+    router.push(path.props)
+  } 
+
+
   if (session) {
   return (
     <>
-    <Link href={path.props} passHref>
+    <Link href={path.props} onClick={handleClick} passHref>
       <button className="bg-btn font-medium  uppercase rounded-full px-6 py-2.5">
         {path.btnText}
       </button>

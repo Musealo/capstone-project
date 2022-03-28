@@ -1,5 +1,7 @@
 import React from 'react'
-import Back from '../Components/Back/Back'
+import Back from '../../../Components/Back/Back'
+
+
 
 
 

@@ -6,6 +6,8 @@ import { nanoid } from 'nanoid';
 
 
 export default function LandingPage() {
+  let roomid = nanoid()
+  console.log(roomid)
   return (
       <>
     <div className="flex flex-col space-y-1.5 h-screen w-auto shadow-xl bg-background text-center">
@@ -17,13 +19,12 @@ export default function LandingPage() {
       <div className='gap-y-3.5'>
       <h1 className="m-10 text-text  md:mx-auto text-8xl">Frivia</h1>
       <p className=" text-text md:container md:mx-auto text-xl">
-        Play Trivia with Friends to get to get to know them better or to test how
-        good you know each other
+        Play Trivia with Friends to get to know them better or to test how
+        well you know each other
       </p>
       </div>
       <LoginButton />
-      <Button props={`room/`} btnText="Create a room"/>
-      
+      <Button props={`room/${roomid}`} btnText="Create a room"/>
     </div>
     </>
   );

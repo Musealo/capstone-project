@@ -1,5 +1,9 @@
-import Link from 'next/link';
 import Button from '../Components/Button/Button';
+import LoginButton from '../Components/LoginButton/LoginButton';
+import { getSession } from "next-auth/react";
+import Link from "next/link";
+import { nanoid } from 'nanoid';
+
 
 export default function LandingPage() {
   return (
@@ -17,15 +21,20 @@ export default function LandingPage() {
         good you know each other
       </p>
       </div>
-      
-          <br/>
-          <p className='text-text'>Sign in with Github</p>
-      <Button props="./room" btnText="Sign in"/>
-      
-      
-      <Button props="./niklas" btnText="Create a room"/>
+      <LoginButton />
+      <Button props={`room/`} btnText="Create a room"/>
       
     </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+
+  return {
+    props: {
+      session,
+    },
+  };
 }

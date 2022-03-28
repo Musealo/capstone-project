@@ -12,7 +12,7 @@ function AddTrivia() {
       <div className="flex bg-background  gap-12 flex-col space-y-1.5 h-screen place-content-start w-auto shadow-xl text-center">
         <h1 className="bg-background text-text text-4xl">Add new Frivia</h1>
 
-        <form className="w-full h-auto relative flex-col" onSubmit={submitFrivia}>
+        <form className="w-full h-auto relative flex-col">
           <textarea id="newFrivia" name="newFrivia" className="w-full h-full text-text focus:outline-none px-3 pt-10 pb-10 mt-input-outline bg-transparent border border-1 border-gray-300 rounded-lg "></textarea>
           <label htmlFor='newFrivia' className="text-text absolute -top-1.5 w-full h-full pointer-events-none flex ">
             Question here

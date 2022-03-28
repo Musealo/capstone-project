@@ -1,12 +1,17 @@
 import React from 'react';
-import Back from '../Components/Back/Back';
-import CreateFriviaForm from '../Components/CreateFriviaForm/CreateFriviaForm';
+import Back from '../../../Components/Back/Back';
+
+
+
+import CreateFriviaForm from '../../../Components/CreateFriviaForm/CreateFriviaForm';
+
+
 
 function AddTrivia() {
   return (
     <div>
       <div className='bg-background'>
-      <Back pfad="/room"/>
+      <Back />
       </div>
       
       <div className="flex bg-background  gap-12 flex-col space-y-1.5 h-screen place-content-start w-auto shadow-xl text-center">
@@ -19,7 +24,7 @@ function AddTrivia() {
           </label>
           <h2 className='text-text'>Mark the correct answer</h2>
           <div className='flex flex-row flex-wrap gap-3 place-content-evenly'>
-            <CreateFriviaForm />
+            <CreateFriviaForm/>
             <CreateFriviaForm />
             <CreateFriviaForm />
             <CreateFriviaForm />

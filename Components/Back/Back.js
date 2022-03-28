@@ -1,17 +1,15 @@
 import Link from 'next/link'
 import React from 'react'
 import { FaArrowCircleLeft } from 'react-icons/fa';
+import Router from 'next/router';
 
 function Back(pfad) {
   return (
     <div>
-        <Link href={pfad.pfad}>
-      <a>
+
       <div className="bg-background">
-        <FaArrowCircleLeft size={50} color="white"/>
+        <span onClick={() => Router.back()}><FaArrowCircleLeft size={50} color="white"/></span>
       </div>
-      </a>
-      </Link>
     </div>
   )
 }

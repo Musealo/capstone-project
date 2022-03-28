@@ -1,23 +1,6 @@
 import React from 'react';
-import CreateFriviaForm from '../Components/CreateFriviaForm/CreateFriviaForm';
 import Back from '../Components/Back/Back';
-
-
- async function submitFrivia(event) {
-  event.preventDefault();
-   const res = await fetch('/api/frivia', {
-    body: JSON.stringify({
-      newFrivia: event.target.newFrivia,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method: 'POST',
-  });
-  
-  const result = await res.json();
-  
-};
+import CreateFriviaForm from '../Components/CreateFriviaForm/CreateFriviaForm';
 
 function AddTrivia() {
   return (

@@ -5,9 +5,9 @@ export default function LoginButton() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <div>
+      <div className="bg-background">
         <button
-          className="bg-btn font-medium  uppercase rounded-full px-6 py-2.5"
+          className="m-2 bg-btn font-medium  uppercase rounded-full px-6 py-2.5"
           onClick={() => signOut()}
         >
           Sign out
@@ -16,11 +16,12 @@ export default function LoginButton() {
     );
   }
   return (
-    <div className='flex flex-row flex-wrap justify-center'>
-      <button 
+    <div className="bg-background flex flex-row flex-wrap justify-center">
+      <button
         className="bg-btn font-medium  uppercase rounded-full px-6 py-2.5 flex flex-row flex-wrap justify-center"
         onClick={() => signIn()}
-      ><FaGithub size={25} color="black"/>
+      >
+        <FaGithub size={25} color="black" />
         Sign in
       </button>
     </div>

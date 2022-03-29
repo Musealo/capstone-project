@@ -18,11 +18,13 @@ function Button(path, btnText) {
   if (session) {
   return (
     <>
+    <div className='bg-background'>
     <Link href={path.props} onClick={handleClick} passHref>
-      <button className="bg-btn font-medium  uppercase rounded-full px-6 py-2.5">
+      <button className="bg-btn m-2 font-medium  uppercase rounded-full px-6 py-2.5">
         {path.btnText}
       </button>
     </Link>
+    </div>
     </>
   )
 }

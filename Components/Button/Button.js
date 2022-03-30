@@ -4,6 +4,8 @@ import { useSession, getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 function Button({ children, ...rest }) {
+ 
+ 
   return (
     <>
       <div className="bg-background">
@@ -15,7 +17,8 @@ function Button({ children, ...rest }) {
         </button>
       </div>
     </>
-  );
+  )
+  ;
 }
 export default Button;
 

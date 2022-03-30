@@ -1,6 +1,6 @@
 import Back from '../../Components/Back/Back';
 import { getSession } from 'next-auth/react';
-import Button from '../../Components/Button/Button';
+import LinkButton from '../../Components/LinkButton/LinkButton';
 
 import { useRouter } from 'next/router';
 
@@ -14,11 +14,11 @@ export default function Room({ roomid }) {
       <Back pfad="/" />
       <div className="flex gap-12 flex-col space-y-1.5 h-screen place-content-center w-auto shadow-xl bg-background text-center">
         <h1 className="text-text text-5xl">Room Menu</h1>
-        <Button props={`${room_id}/AddTrivia`} btnText="Add Trivia" />
-        <Button props={`${room_id}/currentfrivia`} btnText="Current trivia" />
-        <Button props={`${room_id}/OldTrivia`} btnText="Old Trivia" />
-        <Button props={`${room_id}/AllPlayers`} btnText="All Players" />
-        <Button props="Invite" btnText="Invite Player" />
+        <LinkButton href={`${room_id}/AddTrivia`}>Add Trivia</LinkButton>
+        <LinkButton href={`${room_id}/currentfrivia`}>Current Trivia</LinkButton>
+        <LinkButton href={`${room_id}/OldTrivia`}>Old Trivia</LinkButton>
+        <LinkButton href={`${room_id}/AllPlayers`}>All Players</LinkButton>
+        <LinkButton href="Invite">Invite Player</LinkButton>
       </div>
     </>
   );

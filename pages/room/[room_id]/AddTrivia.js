@@ -1,8 +1,5 @@
 import React from 'react';
 import Back from '../../../Components/Back/Back';
-
-
-
 import CreateFriviaForm from '../../../Components/CreateFriviaForm/CreateFriviaForm';
 
 
@@ -24,7 +21,7 @@ function AddTrivia() {
           </label>
           <h2 className='text-text'>Mark the correct answer</h2>
           <div className='flex flex-row flex-wrap gap-3 place-content-evenly'>
-            <CreateFriviaForm/>
+            <CreateFriviaForm />
             <CreateFriviaForm />
             <CreateFriviaForm />
             <CreateFriviaForm />

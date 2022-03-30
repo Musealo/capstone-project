@@ -15,13 +15,12 @@ export default function SignIn({ providers }) {
   return (
     <>
     <div className="flex gap-12 flex-col space-y-1.5 h-screen place-content-center w-auto shadow-xl bg-background text-center">
-      <h1 className="" style={{ marginBottom: "2rem" }}>Sign In</h1>
+      <h1 className="text-text">Sign In</h1>
       {Object.values(providers).map((provider) => (
         <div key={provider.name}>
           <button
           className="bg-btn font-medium  uppercase rounded-full px-6 py-2.5"
             onClick={() => signIn(provider.id)}
-            style={{ backgroundColor: "lightgray" }}
           >
             Sign in with {provider.name}
           </button>

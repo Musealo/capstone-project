@@ -3,7 +3,7 @@ import Back from '../../../Components/Back/Back';
 import CreateFriviaForm from '../../../Components/CreateFriviaForm/CreateFriviaForm';
 import { useRouter } from 'next/router';
 
-function FriviaForm() {
+function AddTrivia() {
   const router = useRouter();
   const { room_id } = router.query;
   async function handleSubmit(event) {
@@ -70,4 +70,4 @@ function FriviaForm() {
   );
 }
 
-export default FriviaForm;
+export default AddTrivia;

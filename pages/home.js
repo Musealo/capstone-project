@@ -14,7 +14,7 @@ export default function LandingPage() {
     const roomId = data.data._id;
 
     router.push(`room/${roomId}`);
-    return;
+    return ;
   }
 
   return (

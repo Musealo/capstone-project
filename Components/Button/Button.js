@@ -4,8 +4,9 @@ import { useSession, getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 
 function Button({ children, ...rest }) {
- 
- 
+  const { data: session} = useSession()
+  const router = useRouter()
+    if (session){
   return (
     <>
       <div className="bg-background">
@@ -18,7 +19,8 @@ function Button({ children, ...rest }) {
       </div>
     </>
   )
-  ;
+  }
+  return <p className='text-text '>Please log in to create a room</p>;
 }
 export default Button;
 

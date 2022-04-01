@@ -7,12 +7,9 @@ export default function LandingPage() {
   const router = useRouter();
 
   async function handleCreateRoom() {
-    console.log('create room');
     const response = await fetch('/api/rooms', { method: 'POST' });
     const data = await response.json();
-    console.log(data);
     const roomId = data.data._id;
-
     router.push(`room/${roomId}`);
     return ;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 
 function AnswerInput( props ) {
     const answerNumber = props.answerNumber
-    console.log(answerNumber)
+
   return (
     <>
       <input

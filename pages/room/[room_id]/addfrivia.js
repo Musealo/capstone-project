@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import BackButton from '../../../Components/BackButton/BackButton';
+import AnswerInput from '../../../Components/AnswerInput/AnswerInput';
 
 function AddTrivia() {
   const router = useRouter();
@@ -53,6 +54,7 @@ function AddTrivia() {
       alert(`Ooops — ${createdFrivia.error}`);
     }
   }
+  
   return (
     <div>
       <div className="bg-background">
@@ -87,63 +89,16 @@ function AddTrivia() {
             </h2>
             <div>
             <div className="m-1 flex items-center mb-4">
-              <input
-                autoComplete="off"
-                tpye="text"
-                id="answer1"
-                name="answer1"
-                className="bg-transparent border border-1 border-gray-300 text-center sadarounded-lg text-text w-screen mr-1"
-              />
-              
-              <input type="radio" name="answerCorrect" value="answer1" className='h-5 w-5'/>
-              
-
-              <label
-                htmlFor="answer1"
-                className="text-text absolute -top-1.5 w-full h-full pointer-events-none flex"
-              ></label>
+              <AnswerInput answerNumber={"answer1"}/>
             </div>
             <div className="m-1 flex items-center mb-4">
-              <input
-                autoComplete="off"
-                type="text"
-                id="answer2"
-                name="answer2"
-                className="bg-transparent border border-1 border-gray-300 text-center sadarounded-lg text-text w-screen mr-1"
-              />
-              <input type="radio" name="answerCorrect" value="answer2" className='h-5 w-5' />
-              <label
-                htmlFor="answer2"
-                className="text-text absolute -top-1.5 w-full h-full pointer-events-none flex "
-              ></label>
+            <AnswerInput answerNumber={"answer2"}/>
             </div>
             <div className="m-1 flex items-center mb-4">
-              <input
-                autoComplete="off"
-                type="text"
-                id="answer3"
-                name="answer3"
-                className="bg-transparent border border-1 border-gray-300 text-center sadarounded-lg text-text w-screen mr-1"
-              />
-              <input type="radio" name="answerCorrect" value="answer3" className='h-5 w-5'/>
-              <label
-                htmlFor="answer3"
-                className="text-text absolute -top-1.5 w-full h-full pointer-events-none flex "
-              ></label>
+            <AnswerInput answerNumber={"answer3"}/>
             </div>
             <div className="m-1 flex items-center mb-4">
-              <input
-                autoComplete="off"
-                type="text"
-                id="answer4"
-                name="answer4"
-                className="bg-transparent border border-1 border-gray-300 text-center sadarounded-lg text-text w-screen mr-1"
-              />
-              <input type="radio" name="answerCorrect" value="answer4" className='h-5 w-5' />
-              <label
-                htmlFor="answer4"
-                className="text-text absolute -top-1.5 w-full h-full pointer-events-none flex "
-              ></label>
+            <AnswerInput answerNumber={"answer4"}/>
             </div>
             </div>
             <div className="mt-10">

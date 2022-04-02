@@ -1,9 +1,5 @@
 import Link from 'next/link';
 import React from 'react';
-import { useSession, getSession } from "next-auth/react"
-import { useRouter } from 'next/router'
-
-
 
 function LinkButton({href, children}) {
   return (

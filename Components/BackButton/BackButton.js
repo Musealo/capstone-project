@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import Router from 'next/router';

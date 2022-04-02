@@ -6,6 +6,7 @@ import { FaSyncAlt } from 'react-icons/fa'
 
 function CurrentFrivia() {
   const [frivias, setFrivias] = useState();
+  console.log(frivias)
   useEffect(() => {
     async function fetchFrivias() {
       try {
@@ -26,8 +27,6 @@ function CurrentFrivia() {
   
   
 async function handleClick(correct, frivia_id, value) {
-  console.log(frivia_id)
-  console.log(value)
   const response = await fetch(`/api/frivia/${frivia_id}`, {
     method: "PATCH",
       headers: { "content-type": "application/json" },
@@ -50,7 +49,7 @@ async function handleClick(correct, frivia_id, value) {
             <div className="text-text">
               {frivias.map(frivia => (
                 <div className="border p-5 rounded-tl-lg w-auto h-auto w-auto mb-10" key={frivia._id}>
-                  <h3 className='flex place-self-start'>Question:</h3>
+                  <h3 className='flex place-self-start'>{frivia.userId.name} asked:</h3>
                   <p className="rounded-lg border font-medium w-auto h-auto" key={frivia._id}>
                     {frivia.question}
                   </p>

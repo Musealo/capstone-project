@@ -69,7 +69,6 @@ function AddTrivia() {
             onSubmit={handleSubmit}
             className="w-screen h-auto relative flex-col "
           >
-    
             <textarea
               type="text"
               id="frivia"
@@ -84,9 +83,9 @@ function AddTrivia() {
               Question here
             </label>
           
-            <h2 className="text-text">
+            <h3 className="text-text">
               Give the user 4 possible answers and mark the right one
-            </h2>
+            </h3>
             <div>
             <div className="m-1 flex items-center mb-4">
               <AnswerInput answerNumber={"answer1"}/>

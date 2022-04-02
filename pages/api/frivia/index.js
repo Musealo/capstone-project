@@ -1,8 +1,7 @@
 import { getSession } from "next-auth/react";
-import Room from "../../../schema/Room";
 import { connectDb } from "../../../utils/db";
 import Frivia from "../../../schema/Frivia";
-import { FaRegCommentDots } from "react-icons/fa";
+
 
 export default async function handler(request, response) {
   try {
@@ -36,6 +35,26 @@ export default async function handler(request, response) {
             response.status(401).json({ error: "Not authenticated" });
           }
           break;
+
+           case "PATCH":
+            const updatedFrivia = await Frivia.findByIdAndUpdate(
+              friviaId,
+              {
+                $set: request.body,
+              },
+              { returnDocument: "after", runValidators: true }
+            ).where({ userId: session.user.id });
+    
+            if (updatedFrivia) {
+              response.status(200).json({
+                success: true,
+                data: updatedFrivia,
+              });
+            } else {
+              response.status(404).json({ error: "Not found" });
+            }
+    
+            break;
   
         default:
           console.log("request method was neither GET or POST");

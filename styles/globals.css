@@ -6,7 +6,7 @@
 
 
 html {
-  background-color: #262626;
+background-color: #262626;
 }
 
 body {
@@ -16,5 +16,7 @@ body {
 
 * {
   box-sizing: border-box;
-  background-color: "#262626"
+  
 };
+
+

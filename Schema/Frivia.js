@@ -4,9 +4,11 @@ import "./Room";
 
 const FriviaSchema = new Schema(
   {
-    text: { type: String, required: true, minlength: 5 },
+    question: { type: String, required: true, minlength: 5 },
     userId: { type: Schema.Types.ObjectId, ref: "User" },
     roomId: { type: Schema.Types.ObjectId, ref: "Room" },
+    answers: {type: String},
+    userAnswers: {type: String},
   },
   { timestamps: true }
 );

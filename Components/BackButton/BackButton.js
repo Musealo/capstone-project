@@ -1,9 +1,8 @@
-import Link from 'next/link'
 import React from 'react'
 import { FaArrowCircleLeft } from 'react-icons/fa';
 import Router from 'next/router';
 
-function Back(pfad) {
+function BackButton() {
   return (
     <div>
 
@@ -14,4 +13,4 @@ function Back(pfad) {
   )
 }
 
-export default Back
+export default BackButton

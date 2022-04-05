@@ -11,22 +11,20 @@ export default function LandingPage() {
     const data = await response.json();
     const roomId = data.data._id;
     router.push(`room/${roomId}`);
-    return ;
+    return;
   }
 
   return (
     <>
-      <div className="flex flex-col h-screen w-auto shadow-xl bg-background text-center">
+      <div className="flex gap-5 flex-col  text-center">
         <img
-          className="gap-y-3.5 h-48 w-96 mx-auto"
+          className="gap-y-3.5 h-48 w-screen mx-auto"
           src="https://media.baamboozle.com/uploads/images/99452/1645324260_474325.jpeg"
           alt="placeholder"
         />
-        <div className="gap-y-3.5 bg-background">
-          <h1 className="bg-background m-10 text-text  md:mx-auto text-8xl">
-            Frivia
-          </h1>
-          <p className="bg-background text-text md:container md:mx-auto text-xl">
+        <div className="gap-y-3.5 ">
+          <h1 className=" m-10 text-titel md:mx-auto text-8xl">Frivia</h1>
+          <p className="text-text md:container md:mx-auto text-xl">
             Play Trivia with Friends to get to know them better or to test how
             well you know each other
           </p>

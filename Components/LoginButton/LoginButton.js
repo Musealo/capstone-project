@@ -5,9 +5,9 @@ export default function LoginButton() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <div className="bg-background">
+      <div className=" px-6 py-2.5">
         <button
-          className="m-2 bg-btn font-medium  uppercase rounded-full px-6 py-2.5"
+          className="m-2 bg-btn text-text font-medium  uppercase rounded-full px-6 py-2.5 w-full"
           onClick={() => signOut()}
         >
           Sign out
@@ -16,9 +16,9 @@ export default function LoginButton() {
     );
   }
   return (
-    <div className="bg-background flex flex-row flex-wrap justify-center">
+    <div className=" flex flex-row flex-wrap justify-center">
       <button
-        className="bg-btn font-medium m-3 uppercase rounded-full px-6 py-2.5 flex flex-row flex-wrap justify-center"
+        className="bg-btn font-medium text-text m-3 uppercase rounded-full px-6 py-2.5 flex flex-row flex-wrap justify-center"
         onClick={() => signIn()}
       >
         <FaGithub size={25} color="black" />

@@ -1,7 +1,7 @@
 import React from 'react';
 
-function AnswerInput( props ) {
-    const answerNumber = props.answerNumber
+function AnswerInput(props) {
+  const answerNumber = props.answerNumber;
 
   return (
     <>
@@ -10,7 +10,7 @@ function AnswerInput( props ) {
         type="text"
         id={answerNumber}
         name={answerNumber}
-        className="bg-transparent border border-1 border-gray-300 text-center sadarounded-lg text-text w-screen mr-1"
+        className="w-full bg-to text-center text-text  rounded"
         required
       />
 
@@ -18,13 +18,13 @@ function AnswerInput( props ) {
         type="radio"
         name="answerCorrect"
         value={answerNumber}
-        className="h-5 w-5"
+        className="h-5 w-5 accent-cor"
         required
       />
 
       <label
         htmlFor={answerNumber}
-        className="text-text absolute -top-1.5 w-full h-full pointer-events-none flex"
+        className="text-text absolute   pointer-events-none flex"
       ></label>
     </>
   );

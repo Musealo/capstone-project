@@ -1,4 +1,3 @@
-
 import { getSession } from 'next-auth/react';
 import LinkButton from '../../Components/LinkButton/LinkButton';
 
@@ -10,11 +9,13 @@ export default function Room() {
   const { room_id } = router.query;
   return (
     <>
-      <BackButton/>
-      <div className="flex gap-12 flex-wrap flex-col space-y-1.5 h-screen place-content-center w-auto shadow-xl bg-background text-center ">
-        <h1 className="text-text text-5xl">Room Menu</h1>
+      <BackButton />
+      <div className="flex gap-12 flex-wrap flex-col text-center">
+        <h1 className="text-text text-5xl bg-to mt-3">Room Menu</h1>
         <LinkButton href={`${room_id}/addfrivia`}>Add Trivia</LinkButton>
-        <LinkButton href={`${room_id}/currentfrivia`}>Current Trivia</LinkButton>
+        <LinkButton href={`${room_id}/currentfrivia`}>
+          Current Trivia
+        </LinkButton>
         <LinkButton href={`${room_id}/oldfrivia`}>Old Trivia</LinkButton>
         <LinkButton href={`${room_id}/allplayers`}>All Players</LinkButton>
         <LinkButton href="Invite">Invite Player</LinkButton>

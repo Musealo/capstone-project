@@ -42,67 +42,57 @@ function AddTrivia() {
       body: JSON.stringify({
         question: friviaText,
         roomId: room_id,
-        answers: JSON.stringify(answers),
-        userAnswers: '',
+        answers: answers,
+        userAnswers: [],
       }),
     });
     const createdFrivia = await response.json();
     if (response.ok) {
-      alert(`Created new frivia with id ${createdFrivia.data._id}`);
+      alert(`Created new frivia`);
       event.target.reset();
     } else {
       alert(`Ooops — ${createdFrivia.error}`);
     }
   }
-  
+
   return (
     <div>
-      <div className="bg-background">
-        <BackButton />
-      </div>
-
-      <div className="flex bg-background gap-12 flex-col h-screen  w-screen  text-center justify-center ">
-        <h1 className="bg-background text-text text-4xl">Add new Frivia</h1>
+      <BackButton />
+      <div className="flex gap-y-12 flex-col   text-center">
+        <h1 className="text-text text-4xl">Add new Frivia</h1>
 
         <div>
-          <form
-            onSubmit={handleSubmit}
-            className="w-screen h-auto relative flex-col "
-          >
+          <form className="flex flex-col gap-y-6" onSubmit={handleSubmit}>
+            <label htmlFor="frivia" className="text-text ">
+              Question here
+            </label>
             <textarea
               type="text"
               id="frivia"
               name="frivia"
-              className="w-full h-full text-text focus:outline-none px-3 pt-10 pb-10 mt-input-outline bg-transparent border border-1 border-gray-300 rounded-lg "
+              className="bg-to text-text rounded font-medium"
             ></textarea>
 
-            <label
-              htmlFor="frivia"
-              className="text-text absolute -top-1.5 w-full h-full pointer-events-none flex "
-            >
-              Question here
-            </label>
-          
             <h3 className="text-text">
               Give the user 4 possible answers and mark the right one
             </h3>
+            <div className="flex flex-col gap-y-6">
+              <div className="flex gap-x-1 items-center">
+                <AnswerInput answerNumber={'answer1'} />
+              </div>
+              <div className="flex gap-x-1 items-center">
+                <AnswerInput answerNumber={'answer2'} />
+              </div>
+              <div className="flex gap-x-1 items-center">
+                <AnswerInput answerNumber={'answer3'} />
+              </div>
+              <div className="flex gap-x-1 items-center">
+                <AnswerInput answerNumber={'answer4'} />
+              </div>
+            </div>
             <div>
-            <div className="m-1 flex items-center mb-4">
-              <AnswerInput answerNumber={"answer1"}/>
-            </div>
-            <div className="m-1 flex items-center mb-4">
-            <AnswerInput answerNumber={"answer2"}/>
-            </div>
-            <div className="m-1 flex items-center mb-4">
-            <AnswerInput answerNumber={"answer3"}/>
-            </div>
-            <div className="m-1 flex items-center mb-4">
-            <AnswerInput answerNumber={"answer4"}/>
-            </div>
-            </div>
-            <div className="mt-10">
               <button
-                className="bg-btn font-medium  uppercase rounded-full px-6 py-2.5 "
+                className="bg-btn rounded-full font-medium  uppercase  px-6 py-2.5 "
                 type="submit"
                 value="Add frivia!"
               >
@@ -117,4 +107,3 @@ function AddTrivia() {
 }
 
 export default AddTrivia;
-

@@ -11,12 +11,23 @@ export default async function handler(request, response) {
     switch (request.method) {
       case 'GET':
         if (session) {
-          const frivias = await Frivia.find()
+          let frivias = await Frivia.find()
             .sort({ createdAt: -1 })
             .limit(100)
             .where({ userId: session.user.id })
             .populate('userId')
-            .select('-answers.correct');
+            .select('-answers.correct')
+            .lean();
+
+          frivias = frivias.map(frivia => {
+            frivia.userAnswered = false;
+            frivia.userAnswers.map(answer => {
+              if (answer.userId.valueOf() === session.user.id) {
+                frivia.userAnswered = true;
+              }
+            });
+            return frivia;
+          });
 
           response.status(200).json(frivias);
         } else {

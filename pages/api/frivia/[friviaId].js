@@ -32,13 +32,6 @@ export default async function handler(request, response) {
           }
         });
 
-        const dataToSave = JSON.stringify({
-          userAnswers: {
-            userId: frivia.userId,
-            value: userWasCorrect,
-          },
-        });
-        console.log(dataToSave);
         const modifyFrivia = await Frivia.findByIdAndUpdate(
           friviaId,
           {

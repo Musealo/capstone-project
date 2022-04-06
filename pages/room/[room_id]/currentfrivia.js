@@ -8,48 +8,60 @@ function CurrentFrivia() {
   const [frivias, setFrivias] = useState();
   const [highlightAnswer, setHighlightAnswer] = useState();
 
-  useEffect(() => {
-    async function fetchFrivias() {
-      try {
-        const response = await fetch('/api/frivia');
-        const friviasData = await response.json();
-        friviasData.map(frivia => {
-          frivia.answers = frivia.answers.map(answer => {
-            answer.correct = null;
-            return answer;
-          });
-          return frivia;
+  async function fetchFrivias() {
+    try {
+      const response = await fetch('/api/frivia');
+      let friviasData = await response.json();
+      friviasData = friviasData.filter(
+        notAnswered => notAnswered.userAnswered === false
+      );
+      friviasData.map(frivia => {
+        frivia.answers = frivia.answers.map(answer => {
+          answer.correct = null;
+          return answer;
         });
-        setFrivias(friviasData);
-      } catch (error) {
-        console.log(error.message);
-      }
+        return frivia;
+      });
+      setFrivias(friviasData);
+    } catch (error) {
+      console.log(error.message);
     }
+  }
 
-    fetchFrivias();
+  useEffect(() => {
+    return fetchFrivias();
   }, []);
 
-  async function handleClick(frivia_id, value) {
+  async function handleClick(frivia_id) {
+    if (answerValue === '') {
+      return alert('Pick an answer first');
+    }
+
     const response = await fetch(`/api/frivia/${frivia_id}`, {
       method: 'PATCH',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({
-        selected: value,
+        selected: answerValue,
       }),
     });
     const data = await response.json();
     setHighlightAnswer(data);
     const friviasCopy = [...frivias];
     friviasCopy.map(frivia => {
-      frivia.answers = frivia.answers.map(answer => {
-        answer.correct = answer.value === data.correct;
-        return answer;
-      });
+      if (frivia_id === frivia._id) {
+        frivia.answers = frivia.answers.map(answer => {
+          answer.correct = answer.value === data.correct;
+          return answer;
+        });
+      }
       return frivia;
     });
     setFrivias(friviasCopy);
-  }
 
+    setTimeout(() => {
+      fetchFrivias();
+    }, 3000);
+  }
   return (
     <>
       <BackButton />

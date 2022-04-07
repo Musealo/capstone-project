@@ -11,7 +11,6 @@ function OldFrivia() {
     try {
       const response = await fetch('/api/frivia?includeCorrect=true');
       let friviasData = await response.json();
-      console.log(friviasData);
       friviasData = friviasData.filter(
         notAnswered => notAnswered.userAnswered === true
       );

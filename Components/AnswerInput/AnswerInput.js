@@ -10,7 +10,7 @@ function AnswerInput(props) {
         type="text"
         id={answerNumber}
         name={answerNumber}
-        className="w-full bg-to text-center text-text  rounded"
+        className="w-full bg-titelAndQuestion text-center text-text  rounded"
         required
       />
 

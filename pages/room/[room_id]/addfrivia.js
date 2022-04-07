@@ -70,7 +70,7 @@ function AddTrivia() {
               type="text"
               id="frivia"
               name="frivia"
-              className="bg-to text-text rounded font-medium"
+              className="bg-titelAndQuestion text-text rounded font-medium"
             ></textarea>
 
             <h3 className="text-text">

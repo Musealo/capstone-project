@@ -7,6 +7,11 @@ export default async function handler(request, response) {
     connectDb();
 
     const session = await getSession({ req: request });
+    let x = '-answers.correct';
+
+    if (request.query.includeCorrect === 'true') {
+      x = null;
+    }
 
     switch (request.method) {
       case 'GET':
@@ -16,7 +21,7 @@ export default async function handler(request, response) {
             .limit(100)
             .where({ userId: session.user.id })
             .populate('userId')
-            .select('-answers.correct')
+            .select(x)
             .lean();
 
           frivias = frivias.map(frivia => {

@@ -67,18 +67,20 @@ function CurrentFrivia() {
       <BackButton />
       {frivias ? (
         <div className="text-text text-center">
-          <h1 className="text-text text-4xl bg-to mb-6 mt-3">Current Frivia</h1>
+          <h1 className="text-text text-4xl bg-titelAndQuestion mb-6 mt-3">
+            Current Frivia
+          </h1>
           {frivias.map(frivia => (
             <div
-              className="bg-Bg shadow-md p-5  w-auto h-auto w-auto mb-10"
+              className="bg-cardBackground shadow-md p-5  w-auto h-auto w-auto mb-10"
               key={frivia._id}
             >
               <div className="flex flex-row gap-x-1">
-                <h3 className="text-to">{frivia.userId.name}</h3>
+                <h3 className="text-titelAndQuestion">{frivia.userId.name}</h3>
                 <p className="text-text">asked:</p>
               </div>
               <p
-                className="bg-to rounded-lg p-5 border font-medium w-auto h-auto"
+                className="bg-titelAndQuestion rounded-lg p-5 border font-medium w-auto h-auto"
                 key={frivia._id}
               >
                 {frivia.question}
@@ -89,7 +91,7 @@ function CurrentFrivia() {
                   <button
                     onClick={() => setAnswerValue(answer.value)}
                     id={answer.value}
-                    className={`focus:bg-Orng mt-3 focus:animate-pulse bg-answerButton p-1 text-white 
+                    className={`focus:bg-orange mt-3 focus:animate-pulse bg-answerButton p-1 text-white 
                     ${
                       answer.correct !== null
                         ? answer.correct
@@ -111,7 +113,7 @@ function CurrentFrivia() {
                   onClick={() => {
                     handleClick(frivia._id, answerValue);
                   }}
-                  className="bg-Orng w-full text-to"
+                  className="bg-orange w-full text-to"
                   type="submit"
                 >
                   Submit

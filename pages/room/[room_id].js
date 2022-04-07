@@ -11,7 +11,9 @@ export default function Room() {
     <>
       <BackButton />
       <div className="flex gap-12 flex-wrap flex-col text-center">
-        <h1 className="text-text text-5xl bg-to mt-3">Room Menu</h1>
+        <h1 className="text-text text-5xl bg-titelAndQuestion mt-3">
+          Room Menu
+        </h1>
         <LinkButton href={`${room_id}/addfrivia`}>Add Trivia</LinkButton>
         <LinkButton href={`${room_id}/currentfrivia`}>
           Current Trivia

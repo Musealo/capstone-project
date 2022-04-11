@@ -4,14 +4,19 @@ import BackButton from '../../../Components/BackButton/BackButton';
 import { FaSyncAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import LogoOldFrivia from '../../../public/images/OldFrivia.png';
+import { useRouter } from 'next/router';
 
 function OldFrivia() {
+  const router = useRouter();
+  const { room_id } = router.query;
   const [frivias, setFrivias] = useState();
   const [highlightAnswer, setHighlightAnswer] = useState();
 
   async function fetchFrivias() {
     try {
-      const response = await fetch('/api/frivia?includeCorrect=true');
+      const response = await fetch(
+        `/api/rooms/${room_id}/frivia?includeCorrect=true`
+      );
       let friviasData = await response.json();
       friviasData = friviasData.filter(
         notAnswered => notAnswered.userAnswered === true

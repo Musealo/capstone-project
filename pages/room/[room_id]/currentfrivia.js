@@ -4,15 +4,18 @@ import BackButton from '../../../Components/BackButton/BackButton';
 import { FaSyncAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import CurrentFrivias from '../../../public/images/CurrentFrivias.png';
+import { useRouter } from 'next/router';
 
 function CurrentFrivia() {
+  const router = useRouter();
+  const { room_id } = router.query;
   const [answerValue, setAnswerValue] = useState('');
   const [frivias, setFrivias] = useState();
   const [highlightAnswer, setHighlightAnswer] = useState();
 
   async function fetchFrivias() {
     try {
-      const response = await fetch('/api/frivia');
+      const response = await fetch(`/api/rooms/${room_id}/frivia`);
       let friviasData = await response.json();
       friviasData = friviasData.filter(
         notAnswered => notAnswered.userAnswered === false
@@ -31,15 +34,19 @@ function CurrentFrivia() {
   }
 
   useEffect(() => {
-    return fetchFrivias();
-  }, []);
+    if (room_id) {
+      console.log(room_id);
+      fetchFrivias();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [room_id]);
 
   async function handleClick(frivia_id) {
     if (answerValue === '') {
       return alert('Pick an answer first');
     }
 
-    const response = await fetch(`/api/frivia/${frivia_id}`, {
+    const response = await fetch(`/api/rooms/${room_id}/frivia/${frivia_id}`, {
       method: 'PATCH',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import BackButton from '../../../Components/BackButton/BackButton';
 import { FaSyncAlt } from 'react-icons/fa';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 function AllPlayer() {
   const router = useRouter();
@@ -26,10 +27,6 @@ function AllPlayer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room_id]);
 
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [users]);
-
   return (
     <>
       <BackButton />
@@ -44,17 +41,20 @@ function AllPlayer() {
                 key={user.name}
                 className="flex gap-2 justify-center justify-items-center border bg-cardBackground gap-y-10"
               >
-                <img
+                <Image
                   alt="profilepic"
                   src={user.image}
-                  className="rounded-full w-10"
+                  layout="fixed"
+                  width={60}
+                  height={60}
+                  className="rounded-full"
                 />
                 <p className="justify-center justify-items-center self-center text-text">
                   {user.name}
                 </p>
                 <p className="justify-center justify-items-center self-center text-text">
-                  correct answers: {user.rightAnswers}/{user.totalAnswers}
-                  {/* ({(user.rightAnswers / user.totalAnswers) * 100}%) */}
+                  correct answers: {user.rightAnswers}/{user.totalAnswers}(
+                  {(user.rightAnswers / user.totalAnswers) * 100}%)
                 </p>
               </div>
             );

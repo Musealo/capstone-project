@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import MainLogo from '/public/images/MainLogo.png';
 import Head from 'next/head';
+import JoinRoomButton from '../Components/JoinRoomButton/JoinRoomButton';
 
 export default function Home() {
   const router = useRouter();
@@ -41,6 +42,7 @@ export default function Home() {
         </div>
         <LoginButton />
         <Button onClick={handleCreateRoom}>Create a room</Button>
+        <JoinRoomButton />
       </div>
     </>
   );

@@ -1,11 +1,14 @@
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useState } from 'react';
 
 function InviteButton({ href, children }) {
+  const router = useRouter();
+  const { room_id } = router.query;
   const [copied, setCopied] = useState(false);
   function copy() {
     const el = document.createElement('input');
-    el.value = window.location.href;
+    el.value = room_id;
     document.body.appendChild(el);
     el.select();
     document.execCommand('copy');

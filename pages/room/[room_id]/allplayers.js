@@ -2,42 +2,63 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import BackButton from '../../../Components/BackButton/BackButton';
 import { FaSyncAlt } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 
 function AllPlayer() {
-  const [frivias, setFrivias] = useState();
-  const [highlightAnswer, setHighlightAnswer] = useState();
+  const router = useRouter();
+  const { room_id } = router.query;
+  const [users, setUsers] = useState([]);
 
-  async function fetchFrivias() {
+  async function fetchRooms() {
     try {
-      const response = await fetch('/api/frivia?includeCorrect=true');
-      let friviasData = await response.json();
-      console.log(friviasData);
-      friviasData = friviasData.filter(
-        notAnswered => notAnswered.userAnswered === true
-      );
-      friviasData.map(frivia => {
-        frivia.answers = frivia.answers.map(answer => {
-          return answer;
-        });
-        return frivia;
-      });
-      setFrivias(friviasData);
+      const responseRoomUser = await fetch(`/api/rooms/${room_id}/players`);
+      let userData = await responseRoomUser.json();
+      setUsers(userData);
     } catch (error) {
       console.log(error.message);
     }
   }
 
   useEffect(() => {
-    return fetchFrivias();
-  }, []);
+    if (room_id) {
+      fetchRooms();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [room_id]);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [users]);
+
   return (
     <>
       <BackButton />
-      {frivias ? (
+      {users.length > 0 ? (
         <div className="text-text text-center">
           <h1 className="text-text text-4xl bg-titelAndQuestion mb-6 mt-3">
             All Player
           </h1>
+          {users.map(user => {
+            return (
+              <div
+                key={user.name}
+                className="flex gap-2 justify-center justify-items-center border bg-cardBackground gap-y-10"
+              >
+                <img
+                  alt="profilepic"
+                  src={user.image}
+                  className="rounded-full w-10"
+                />
+                <p className="justify-center justify-items-center self-center text-text">
+                  {user.name}
+                </p>
+                <p className="justify-center justify-items-center self-center text-text">
+                  correct answers: {user.rightAnswers}/{user.totalAnswers}
+                  {/* ({(user.rightAnswers / user.totalAnswers) * 100}%) */}
+                </p>
+              </div>
+            );
+          })}
         </div>
       ) : (
         <div className="flex text-text flex-row justify-center">

@@ -1,6 +1,6 @@
 import { getSession } from 'next-auth/react';
-import { connectDb } from '../../../utils/db';
-import Frivia from '../../../Schema/Frivia';
+import Frivia from '../../../../../Schema/Frivia';
+import { connectDb } from '../../../../../utils/db';
 
 export default async function handler(request, response) {
   const { friviaId } = request.query;

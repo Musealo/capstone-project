@@ -1,8 +1,10 @@
 import { getSession } from 'next-auth/react';
-import { connectDb } from '../../../utils/db';
-import Frivia from '../../../Schema/Frivia';
+import { connectDb } from '../../../../../utils/db';
+import Frivia from '../../../../../Schema/Frivia';
+import { ObjectId } from 'mongodb';
 
 export default async function handler(request, response) {
+  console.log(request.query);
   try {
     connectDb();
 
@@ -16,10 +18,11 @@ export default async function handler(request, response) {
     switch (request.method) {
       case 'GET':
         if (session) {
-          let frivias = await Frivia.find()
+          let frivias = await Frivia.find({
+            roomId: request.query.room_id,
+          })
             .sort({ createdAt: -1 })
             .limit(100)
-            .where({ userId: session.user.id })
             .populate('userId')
             .select(x)
             .lean();

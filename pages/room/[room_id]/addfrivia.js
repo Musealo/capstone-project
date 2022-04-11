@@ -2,8 +2,6 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import BackButton from '../../../Components/BackButton/BackButton';
 import AnswerInput from '../../../Components/AnswerInput/AnswerInput';
-import Image from 'next/image';
-import AddFrivia from '../../../public/images/RoomMenu.png';
 
 function AddTrivia() {
   const router = useRouter();
@@ -34,7 +32,7 @@ function AddTrivia() {
       correct: event.target.elements.answerCorrect.value === 'answer4',
     });
 
-    const response = await fetch('/api/frivia', {
+    const response = await fetch(`/api/rooms/${room_id}/frivia`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

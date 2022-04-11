@@ -29,7 +29,7 @@ export default async function handler(request, response) {
         }).lean();
 
         let frivia = await Frivia.find({
-          room_id: ObjectId(request.query.room_id),
+          roomId: ObjectId(request.query.room_id),
         });
 
         users.map(userInRoom => {

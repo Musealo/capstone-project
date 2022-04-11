@@ -2,6 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import BackButton from '../../../Components/BackButton/BackButton';
 import AnswerInput from '../../../Components/AnswerInput/AnswerInput';
+import Image from 'next/image';
+import AddFrivia from '../../../public/images/RoomMenu.png';
 
 function AddTrivia() {
   const router = useRouter();
@@ -9,7 +11,6 @@ function AddTrivia() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // get data from event object
     const friviaText = event.target.elements.frivia.value;
     const answers = [];
     answers.push({
@@ -33,7 +34,6 @@ function AddTrivia() {
       correct: event.target.elements.answerCorrect.value === 'answer4',
     });
 
-    // fetch
     const response = await fetch('/api/frivia', {
       method: 'POST',
       headers: {
@@ -59,7 +59,9 @@ function AddTrivia() {
     <div>
       <BackButton />
       <div className="flex gap-y-12 flex-col   text-center">
-        <h1 className="text-text text-4xl">Add new Frivia</h1>
+        <h1 className="text-text text-4xl bg-titelAndQuestion">
+          Add new Frivia
+        </h1>
 
         <div>
           <form className="flex flex-col gap-y-6" onSubmit={handleSubmit}>

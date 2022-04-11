@@ -1,26 +1,27 @@
 import { getSession } from 'next-auth/react';
 import LinkButton from '../../Components/LinkButton/LinkButton';
-
+import RoomMenu from '../../public/images/RoomMenu.png';
 import { useRouter } from 'next/router';
 import BackButton from '../../Components/BackButton/BackButton';
+import InviteButton from '../../Components/InviteButton/InviteButton';
+import Image from 'next/image';
 
 export default function Room() {
   const router = useRouter();
   const { room_id } = router.query;
+
   return (
     <>
       <BackButton />
-      <div className="flex gap-12 flex-wrap flex-col text-center">
-        <h1 className="text-text text-5xl bg-titelAndQuestion mt-3">
-          Room Menu
-        </h1>
-        <LinkButton href={`${room_id}/addfrivia`}>Add Trivia</LinkButton>
+      <div className="flex gap-6 flex-wrap flex-col text-center">
+        <Image src={RoomMenu} alt="Logo with Room Menu as text" />
+        <LinkButton href={`${room_id}/addfrivia`}>Add Frivia</LinkButton>
         <LinkButton href={`${room_id}/currentfrivia`}>
-          Current Trivia
+          Current Frivia
         </LinkButton>
-        <LinkButton href={`${room_id}/oldfrivia`}>Old Trivia</LinkButton>
+        <LinkButton href={`${room_id}/oldfrivia`}>Old Frivia</LinkButton>
         <LinkButton href={`${room_id}/allplayers`}>All Players</LinkButton>
-        <LinkButton href="Invite">Invite Player</LinkButton>
+        <InviteButton />
       </div>
     </>
   );

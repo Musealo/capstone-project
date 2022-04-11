@@ -2,6 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import BackButton from '../../../Components/BackButton/BackButton';
 import { FaSyncAlt } from 'react-icons/fa';
+import Image from 'next/image';
+import CurrentFrivias from '../../../public/images/CurrentFrivias.png';
 
 function CurrentFrivia() {
   const [answerValue, setAnswerValue] = useState('');

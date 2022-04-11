@@ -1,11 +1,12 @@
-import { Schema, model } from "mongoose";
-import "./User";
+import { Schema, model } from 'mongoose';
+import './User';
 
 const RoomSchema = new Schema(
   {
-    userId: { type: Schema.Types.ObjectId, ref: "User" },
+    owner: { type: Schema.Types.ObjectId, ref: 'User' },
+    players: [{ type: Schema.Types.ObjectId }],
   },
   { timestamps: true }
 );
 
-export default model("Room", RoomSchema, "rooms", { overwriteModels: true });
+export default model('Room', RoomSchema, 'rooms', { overwriteModels: true });

@@ -5,9 +5,15 @@ import { useSession, getSession } from 'next-auth/react';
 function JoinRoomButton() {
   const { data: session } = useSession();
   const router = useRouter();
-  function handleJoinRoom(e) {
-    const inputValue = document.querySelector('input').value;
+
+  async function handleJoinRoom(e) {
     e.preventDefault();
+    const inputValue = document.querySelector('input').value;
+    const response = await fetch(`/api/rooms/${inputValue}/players`, {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+    });
+    const data = await response.json();
     router.push(`/room/${inputValue}`);
   }
   if (session) {

@@ -61,6 +61,28 @@ export default async function handler(request, response) {
         response.status(200).json(users);
 
         break;
+
+      case 'PATCH':
+        let room = await Room.findById(request.query.room_id).exec();
+
+        if (room.players.includes(session.user.id)) {
+          return response
+            .status(400)
+            .json({ error: 'Already active in the Room' });
+        }
+        let modifyRoom = await Room.findByIdAndUpdate(
+          room._id,
+          {
+            $push: {
+              players: session.user.id,
+            },
+          },
+          { returnDocument: 'after', runValidators: true }
+        );
+
+        response.status(200).json(room);
+        break;
+
       default:
         response.status(405).json({ error: 'Method not allowed' });
         break;

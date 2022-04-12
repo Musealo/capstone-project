@@ -6,6 +6,7 @@ function InviteButton({ href, children }) {
   const router = useRouter();
   const { room_id } = router.query;
   const [copied, setCopied] = useState(false);
+
   function copy() {
     const el = document.createElement('input');
     el.value = room_id;

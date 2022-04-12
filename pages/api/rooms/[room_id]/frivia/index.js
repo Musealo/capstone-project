@@ -14,10 +14,10 @@ export default async function handler(request, response) {
       x = null;
     }
 
+    const currentUserId = session.user.id._id;
     switch (request.method) {
       case 'GET':
         if (session) {
-          console.log(request.query.room_id);
           let frivias = await Frivia.find({
             roomId: request.query.room_id,
           })
@@ -29,12 +29,12 @@ export default async function handler(request, response) {
 
           if (request.query.oldFrivias && request.query.oldFrivias === true) {
             frivias = frivias.reduce((filtered, frivia) => {
-              if (frivia.userId.valueOf() === session.user.id) {
+              if (frivia.userId._id.valueOf() === session.user.id) {
                 return filtered;
               }
 
               frivia.userAnswers = frivia.userAnswers.filter(answer => {
-                return answer.userId.valueOf() === session.user.id;
+                return answer.userId._id.valueOf() === session.user.id;
               });
 
               if (frivia.userAnswers.length > 0) {
@@ -47,7 +47,7 @@ export default async function handler(request, response) {
           }
 
           frivias = frivias.filter(frivia => {
-            return frivia.userId.valueOf() !== session.user.id;
+            return frivia.userId._id.valueOf() !== session.user.id;
           });
 
           response.status(200).json(frivias);

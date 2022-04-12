@@ -4,7 +4,6 @@ import Frivia from '../../../../../Schema/Frivia';
 import { ObjectId } from 'mongodb';
 
 export default async function handler(request, response) {
-  console.log(request.query);
   try {
     connectDb();
 

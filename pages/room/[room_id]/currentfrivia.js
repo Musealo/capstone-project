@@ -35,7 +35,6 @@ function CurrentFrivia() {
 
   useEffect(() => {
     if (room_id) {
-      console.log(room_id);
       fetchFrivias();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

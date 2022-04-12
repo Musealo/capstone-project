@@ -11,7 +11,6 @@ function OldFrivia() {
   const { room_id } = router.query;
   const [frivias, setFrivias] = useState();
   const [highlightAnswer, setHighlightAnswer] = useState();
-
   async function fetchFrivias() {
     try {
       const response = await fetch(
@@ -25,6 +24,7 @@ function OldFrivia() {
         frivia.answers = frivia.answers.map(answer => {
           return answer;
         });
+
         return frivia;
       });
       setFrivias(friviasData);

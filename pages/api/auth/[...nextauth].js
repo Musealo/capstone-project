@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
-import GithubProvider from "next-auth/providers/github";
-import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import clientPromise from "../../../utils/mongodb";
+import NextAuth from 'next-auth';
+import GithubProvider from 'next-auth/providers/github';
+import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
+import clientPromise from '../../../utils/mongodb';
 
 export default NextAuth({
   // Configure one or more authentication providers
@@ -19,6 +19,7 @@ export default NextAuth({
     },
   },
   pages: {
-    signIn: "/auth/signin",
+    signIn: '/auth/signin',
   },
+  secret: process.env.NEXTAUTH_SECRET,
 });

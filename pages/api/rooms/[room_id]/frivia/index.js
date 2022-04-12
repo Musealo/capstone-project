@@ -10,11 +10,10 @@ export default async function handler(request, response) {
     const session = await getSession({ req: request });
     let x = '-answers.correct';
 
-    if (request.query.includeCorrect === 'true') {
+    if (request.query.oldFrivias && request.query.oldFrivias === 'true') {
       x = null;
     }
 
-    const currentUserId = session.user.id._id;
     switch (request.method) {
       case 'GET':
         if (session) {
@@ -27,7 +26,7 @@ export default async function handler(request, response) {
             .select(x)
             .lean();
 
-          if (request.query.oldFrivias && request.query.oldFrivias === true) {
+          if (request.query.oldFrivias && request.query.oldFrivias === 'true') {
             frivias = frivias.reduce((filtered, frivia) => {
               if (frivia.userId._id.valueOf() === session.user.id) {
                 return filtered;

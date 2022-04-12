@@ -32,6 +32,7 @@ export default async function handler(request, response) {
             }
 
             frivia.userAnswers = frivia.userAnswers.filter(answer => {
+              console.log(answer.userId._id.valueOf(), session.user.id);
               return answer.userId._id.valueOf() === session.user.id;
             });
 

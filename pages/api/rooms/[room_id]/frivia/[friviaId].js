@@ -37,7 +37,7 @@ export default async function handler(request, response) {
           {
             $push: {
               userAnswers: {
-                userId: frivia.userId,
+                userId: session.user.id,
                 value: request.body.selected,
               },
             },

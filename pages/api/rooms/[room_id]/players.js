@@ -70,15 +70,11 @@ export default async function handler(request, response) {
             .status(400)
             .json({ error: 'Already active in the Room' });
         }
-        let modifyRoom = await Room.findByIdAndUpdate(
-          room._id,
-          {
-            $push: {
-              players: session.user.id,
-            },
+        await Room.findByIdAndUpdate(room._id, {
+          $push: {
+            players: session.user.id,
           },
-          { returnDocument: 'after', runValidators: true }
-        );
+        });
 
         response.status(200).json(room);
         break;

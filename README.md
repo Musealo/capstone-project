@@ -8,7 +8,7 @@ With Frivia you can play trivia or quizzes with your friends
 - invite your friends to it,
 - ask questions and with 4 possible answers
 - see how many questions every user got right
-  All data is stored in MongoDB.
+
 
 ## How to and navigation
 

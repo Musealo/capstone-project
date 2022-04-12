@@ -26,28 +26,27 @@ export default async function handler(request, response) {
             .select(x)
             .lean();
 
-          if (request.query.oldFrivias && request.query.oldFrivias === 'true') {
-            frivias = frivias.reduce((filtered, frivia) => {
-              if (frivia.userId._id.valueOf() === session.user.id) {
-                return filtered;
-              }
+          frivias = frivias.reduce((filtered, frivia) => {
+            if (frivia.userId._id.valueOf() === session.user.id) {
+              return filtered;
+            }
 
-              frivia.userAnswers = frivia.userAnswers.filter(answer => {
-                return answer.userId._id.valueOf() === session.user.id;
-              });
+            frivia.userAnswers = frivia.userAnswers.filter(answer => {
+              return answer.userId._id.valueOf() === session.user.id;
+            });
 
+            if (request.query.oldFrivias && request.query.oldFrivias === true) {
               if (frivia.userAnswers.length > 0) {
                 filtered.push(frivia);
               }
-              return filtered;
-            }, []);
+            } else {
+              if (frivia.userAnswers.length === 0) {
+                filtered.push(frivia);
+              }
+            }
 
-            return response.status(200).json(frivias);
-          }
-
-          frivias = frivias.filter(frivia => {
-            return frivia.userId._id.valueOf() !== session.user.id;
-          });
+            return filtered;
+          }, []);
 
           response.status(200).json(frivias);
         } else {

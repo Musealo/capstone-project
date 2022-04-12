@@ -17,6 +17,7 @@ export default async function handler(request, response) {
     switch (request.method) {
       case 'GET':
         if (session) {
+          console.log(request.query.room_id);
           let frivias = await Frivia.find({
             roomId: request.query.room_id,
           })
@@ -26,14 +27,27 @@ export default async function handler(request, response) {
             .select(x)
             .lean();
 
-          frivias = frivias.map(frivia => {
-            frivia.userAnswered = false;
-            frivia.userAnswers.map(answer => {
-              if (answer.userId.valueOf() === session.user.id) {
-                frivia.userAnswered = true;
+          if (request.query.oldFrivias && request.query.oldFrivias === true) {
+            frivias = frivias.reduce((filtered, frivia) => {
+              if (frivia.userId.valueOf() === session.user.id) {
+                return filtered;
               }
-            });
-            return frivia;
+
+              frivia.userAnswers = frivia.userAnswers.filter(answer => {
+                return answer.userId.valueOf() === session.user.id;
+              });
+
+              if (frivia.userAnswers.length > 0) {
+                filtered.push(frivia);
+              }
+              return filtered;
+            }, []);
+
+            return response.status(200).json(frivias);
+          }
+
+          frivias = frivias.filter(frivia => {
+            return frivia.userId.valueOf() !== session.user.id;
           });
 
           response.status(200).json(frivias);

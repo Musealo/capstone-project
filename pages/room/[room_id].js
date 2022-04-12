@@ -13,7 +13,9 @@ export default function Room() {
   return (
     <>
       <BackButton />
-      <Image src={RoomMenu} alt="Logo with Room Menu as text" />
+      <div className="flex justify-center">
+        <Image src={RoomMenu} alt="Logo with Room Menu as text" />
+      </div>
       <div className="flex gap-6 flex-wrap flex-col text-center">
         <LinkButton href={`${room_id}/addfrivia`}>Add Frivia</LinkButton>
         <LinkButton href={`${room_id}/currentfrivia`}>

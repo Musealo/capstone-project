@@ -11,12 +11,14 @@ function OldFrivia() {
   const { room_id } = router.query;
   const [frivias, setFrivias] = useState();
   const [highlightAnswer, setHighlightAnswer] = useState();
+
   async function fetchFrivias() {
     try {
       const response = await fetch(
-        `/api/rooms/${room_id}/frivia?includeCorrect=true`
+        `/api/rooms/${room_id}/frivia?oldFrivias=true`
       );
       let friviasData = await response.json();
+
       friviasData = friviasData.filter(
         notAnswered => notAnswered.userAnswered === true
       );
@@ -34,8 +36,11 @@ function OldFrivia() {
   }
 
   useEffect(() => {
-    return fetchFrivias();
-  }, []);
+    if (room_id) {
+      fetchFrivias();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [room_id]);
 
   return (
     <>

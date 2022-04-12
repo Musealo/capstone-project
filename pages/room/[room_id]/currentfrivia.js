@@ -17,9 +17,6 @@ function CurrentFrivia() {
     try {
       const response = await fetch(`/api/rooms/${room_id}/frivia`);
       let friviasData = await response.json();
-      friviasData = friviasData.filter(
-        notAnswered => notAnswered.userAnswered === false
-      );
       friviasData.map(frivia => {
         frivia.answers = frivia.answers.map(answer => {
           answer.correct = null;

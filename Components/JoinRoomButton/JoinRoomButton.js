@@ -26,7 +26,7 @@ function JoinRoomButton() {
             type="text"
             id="joinRoom"
             name="joinRoom"
-            className="bg-titelAndQuestion text-text rounded font-medium p-1 "
+            className="bg-titelAndQuestion text-text rounded font-medium p-1 w-60"
           ></input>
           <button
             className="bg-btn font-medium  uppercase p-1 "

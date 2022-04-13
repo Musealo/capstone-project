@@ -12,7 +12,7 @@ function Button({ children, ...rest }) {
         <div className=" px-6 py-2.5">
           <button
             {...rest}
-            className="bg-btn font-medium uppercase w-60 shadow-md rounded-full m-auto px-6 py-2.5"
+            className="bg-btn m-2 text-text font-medium  uppercase rounded-full w-full px-6 py-2.5"
           >
             {children}
           </button>

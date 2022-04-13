@@ -12,6 +12,7 @@ function CurrentFrivia() {
   const [answerValue, setAnswerValue] = useState('');
   const [frivias, setFrivias] = useState();
   const [highlightAnswer, setHighlightAnswer] = useState();
+  const [submitAnswer, setSubmitAnswer] = useState(false);
 
   async function fetchFrivias() {
     try {
@@ -38,6 +39,7 @@ function CurrentFrivia() {
   }, [room_id]);
 
   async function handleClick(frivia_id) {
+    setSubmitAnswer(true);
     if (answerValue === '') {
       return alert('Pick an answer first');
     }
@@ -113,16 +115,20 @@ function CurrentFrivia() {
               </div>
 
               <div className="text-text">
-                <button
-                  name="userAnswers"
-                  onClick={() => {
-                    handleClick(frivia._id, answerValue);
-                  }}
-                  className="bg-orange w-full text-to"
-                  type="submit"
-                >
-                  Submit
-                </button>
+                {submitAnswer ? (
+                  <p>Answered!</p>
+                ) : (
+                  <button
+                    name="userAnswers"
+                    onClick={() => {
+                      handleClick(frivia._id, answerValue);
+                    }}
+                    className="bg-orange w-full text-to"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                )}
               </div>
             </div>
           ))}

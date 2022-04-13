@@ -39,7 +39,6 @@ export default async function handler(request, response) {
               request.query.oldFrivias &&
               request.query.oldFrivias === 'true'
             ) {
-              console.log(request.query.oldFrivias);
               if (frivia.userAnswers.length > 0) {
                 filtered.push(frivia);
               }

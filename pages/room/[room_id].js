@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import BackButton from '../../Components/BackButton/BackButton';
 import InviteButton from '../../Components/InviteButton/InviteButton';
 import Image from 'next/image';
+import { FaSyncAlt } from 'react-icons/fa';
 
 export default function Room() {
   const router = useRouter();
@@ -13,17 +14,19 @@ export default function Room() {
   return (
     <>
       <BackButton />
-      <div className="flex justify-center ">
-        <Image src={RoomMenu} alt="Logo with Room Menu as text" />
-      </div>
-      <div className="flex gap-6 flex-wrap flex-col text-center">
-        <LinkButton href={`${room_id}/addfrivia`}>Add Frivia</LinkButton>
-        <LinkButton href={`${room_id}/currentfrivia`}>
-          Current Frivia
-        </LinkButton>
-        <LinkButton href={`${room_id}/oldfrivia`}>Old Frivia</LinkButton>
-        <LinkButton href={`${room_id}/allplayers`}>All Players</LinkButton>
-        <InviteButton />
+      <div>
+        <div className="flex justify-center ">
+          <Image src={RoomMenu} alt="Logo with Room Menu as text" />
+        </div>
+        <div className="flex gap-6 flex-wrap flex-col text-center">
+          <LinkButton href={`${room_id}/addfrivia`}>Add Frivia</LinkButton>
+          <LinkButton href={`${room_id}/currentfrivia`}>
+            Current Frivia
+          </LinkButton>
+          <LinkButton href={`${room_id}/oldfrivia`}>Old Frivia</LinkButton>
+          <LinkButton href={`${room_id}/allplayers`}>All Players</LinkButton>
+          <InviteButton />
+        </div>
       </div>
     </>
   );

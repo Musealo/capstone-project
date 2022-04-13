@@ -6,11 +6,14 @@ import Image from 'next/image';
 import MainLogo from '/public/images/MainLogo.png';
 import Head from 'next/head';
 import JoinRoomButton from '../Components/JoinRoomButton/JoinRoomButton';
+import { useState, useEffect } from 'react';
 
 export default function Home() {
   const router = useRouter();
+  const [creatingRoom, setCreatingRoom] = useState(false);
 
   async function handleCreateRoom() {
+    setCreatingRoom(true);
     const response = await fetch('/api/rooms', { method: 'POST' });
     const data = await response.json();
     const roomId = data.data._id;
@@ -44,7 +47,13 @@ export default function Home() {
             </p>
           </div>
           <LoginButton />
-          <Button onClick={handleCreateRoom}>Create a room</Button>
+          <div>
+            {creatingRoom ? (
+              <p>Room is being created, please wait</p>
+            ) : (
+              <Button onClick={handleCreateRoom}>Create a room</Button>
+            )}
+          </div>
           <JoinRoomButton />
         </div>
       </div>

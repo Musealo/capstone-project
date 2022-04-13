@@ -25,7 +25,7 @@ export default async function handler(request, response) {
         }
 
         let users = await User.find({
-          _id: { $in: [rooms[0].players] },
+          _id: { $in: rooms[0].players },
         }).lean();
 
         let frivia = await Frivia.find({

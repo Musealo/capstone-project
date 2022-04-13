@@ -39,7 +39,7 @@ function AllPlayer() {
             return (
               <div
                 key={user.name}
-                className="flex gap-2 justify-center justify-items-center border bg-cardBackground gap-y-10"
+                className="flex gap-2 justify-center justify-items-center border bg-cardBackground mb-3"
               >
                 <Image
                   alt="profilepic"

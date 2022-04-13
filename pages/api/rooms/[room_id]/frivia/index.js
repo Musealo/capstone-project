@@ -32,11 +32,14 @@ export default async function handler(request, response) {
             }
 
             frivia.userAnswers = frivia.userAnswers.filter(answer => {
-              console.log(answer.userId._id.valueOf(), session.user.id);
               return answer.userId._id.valueOf() === session.user.id;
             });
 
-            if (request.query.oldFrivias && request.query.oldFrivias === true) {
+            if (
+              request.query.oldFrivias &&
+              request.query.oldFrivias === 'true'
+            ) {
+              console.log(request.query.oldFrivias);
               if (frivia.userAnswers.length > 0) {
                 filtered.push(frivia);
               }

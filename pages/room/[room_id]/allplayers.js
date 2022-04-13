@@ -39,22 +39,20 @@ function AllPlayer() {
             return (
               <div
                 key={user.name}
-                className="flex gap-2 justify-center justify-items-center border bg-cardBackground gap-y-10"
+                className="flex gap-2 border bg-cardBackground mb-3"
               >
                 <Image
                   alt="profilepic"
                   src={user.image}
-                  layout="fixed"
                   width={60}
                   height={60}
                   className="rounded-full"
                 />
                 <p className="justify-center justify-items-center self-center text-text">
-                  {user.name}
+                  {user.name} |
                 </p>
-                <p className="justify-center justify-items-center self-center text-text">
-                  correct answers: {user.rightAnswers}/{user.totalAnswers}(
-                  {(user.rightAnswers / user.totalAnswers) * 100}%)
+                <p className="self-center text-text">
+                  correct answers: {user.rightAnswers}/{user.totalAnswers}
                 </p>
               </div>
             );

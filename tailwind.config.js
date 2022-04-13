@@ -21,6 +21,7 @@ module.exports = {
       wrong: '#AE2012',
       answerButton: '#126782',
       black: '#000',
+      mainBackground: '#8ECAE6',
     },
   },
   plugins: [],

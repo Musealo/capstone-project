@@ -13,7 +13,7 @@ export default function Room() {
   return (
     <>
       <BackButton />
-      <div className="flex justify-center">
+      <div className="flex justify-center ">
         <Image src={RoomMenu} alt="Logo with Room Menu as text" />
       </div>
       <div className="flex gap-6 flex-wrap flex-col text-center">

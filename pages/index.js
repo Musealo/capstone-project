@@ -27,24 +27,26 @@ export default function Home() {
           href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❓</text></svg>"
         ></link>
       </Head>
-      <div className="flex justify-center">
-        <Image
-          src={MainLogo}
-          alt="logo with frivia as text in it"
-          width="720"
-          height="500"
-        />
-      </div>
-      <div className="flex flex-col text-center">
-        <div>
-          <p className="text-text md:container md:mx-auto text-xl mt-5">
-            Play Trivia with Friends to get to know them better or to test how
-            well you know each other
-          </p>
+      <div className="flex gap-6 flex-wrap flex-col text-center">
+        <div className="flex justify-center">
+          <Image
+            src={MainLogo}
+            alt="logo with frivia as text in it"
+            width="720"
+            height="500"
+          />
         </div>
-        <LoginButton />
-        <Button onClick={handleCreateRoom}>Create a room</Button>
-        <JoinRoomButton />
+        <div className="flex flex-col text-center">
+          <div>
+            <p className="text-text md:container md:mx-auto text-xl mt-5">
+              Play Trivia with Friends to get to know them better or to test how
+              well you know each other
+            </p>
+          </div>
+          <LoginButton />
+          <Button onClick={handleCreateRoom}>Create a room</Button>
+          <JoinRoomButton />
+        </div>
       </div>
     </>
   );

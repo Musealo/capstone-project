@@ -18,10 +18,7 @@ function OldFrivia() {
         `/api/rooms/${room_id}/frivia?oldFrivias=true`
       );
       let friviasData = await response.json();
-
-      friviasData = friviasData.filter(
-        notAnswered => notAnswered.userAnswered === true
-      );
+      console.log(friviasData);
       friviasData.map(frivia => {
         frivia.answers = frivia.answers.map(answer => {
           return answer;

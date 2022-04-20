@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 
 const userSchema = new Schema(
   {
@@ -9,4 +9,4 @@ const userSchema = new Schema(
   { timestamps: true }
 );
 
-export default model("User", userSchema, "users", { overwriteModels: true });
+export default model('User', userSchema, 'users', { overwriteModels: true });

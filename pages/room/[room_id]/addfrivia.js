@@ -56,7 +56,7 @@ function AddTrivia() {
   return (
     <div>
       <BackButton />
-      <div className="flex gap-y-12 flex-col   text-center">
+      <div className="flex gap-y-12 flex-col mt-3  text-center">
         <h1 className="text-text text-4xl bg-titelAndQuestion">
           Add new Frivia
         </h1>

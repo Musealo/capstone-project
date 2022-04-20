@@ -13,8 +13,8 @@ export default function Room() {
 
   return (
     <>
-      <BackButton />
-      <div>
+      <div className="bg-mainBackground p-5 min-h-screen">
+        <BackButton />
         <div className="flex justify-center ">
           <Image src={RoomMenu} alt="Logo with Room Menu as text" />
         </div>
@@ -25,6 +25,7 @@ export default function Room() {
           </LinkButton>
           <LinkButton href={`${room_id}/oldfrivia`}>Old Frivia</LinkButton>
           <LinkButton href={`${room_id}/allplayers`}>All Players</LinkButton>
+          <LinkButton href={`${room_id}/yourfrivia`}>Your Frivia</LinkButton>
           <InviteButton />
         </div>
       </div>

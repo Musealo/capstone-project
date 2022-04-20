@@ -26,6 +26,15 @@ export default async function handler(request, response) {
             .select(x)
             .lean();
 
+          if (request.query.youAsked && request.query.youAsked === 'true') {
+            frivias = frivias.filter(userFrivia => {
+              if (userFrivia.userId._id.valueOf() === session.user.id) {
+                return userFrivia;
+              }
+            });
+            return response.status(200).json(frivias);
+          }
+
           frivias = frivias.reduce((filtered, frivia) => {
             if (frivia.userId._id.valueOf() === session.user.id) {
               return filtered;

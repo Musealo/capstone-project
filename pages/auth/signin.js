@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 export default function SignIn({ providers }) {
-  // you can use a hook like this to redirect the user after the login:
+  // you can use a hook like this to redirect the user after the login
   const { data: session } = useSession();
   const router = useRouter();
   useEffect(() => {

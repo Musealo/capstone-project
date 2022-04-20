@@ -6,7 +6,7 @@ With Frivia you can play trivia or quizzes with your friends
 
 - You can create a room,
 - invite your friends to it,
-- ask questions and with 4 possible answers
+- ask questions with 4 possible answers
 - see how many questions every user got right
 
 

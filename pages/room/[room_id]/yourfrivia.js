@@ -4,6 +4,7 @@ import BackButton from '../../../Components/BackButton/BackButton';
 import { FaSyncAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import LogoYourFrivia from '../../../public/images/YourFrivia.png';
 
 function YourFrivia() {
   const router = useRouter();
@@ -42,9 +43,12 @@ function YourFrivia() {
       <BackButton />
       {frivias ? (
         <div className="text-text text-center">
-          <h1 className="text-text text-4xl bg-titelAndQuestion mb-6 mt-3">
-            Your Frivia
-          </h1>
+          <Image
+            src={LogoYourFrivia}
+            alt="Your frivia cat logo"
+            width="180"
+            height="180"
+          />
           {frivias.map(frivia => (
             <div
               className="bg-cardBackground shadow-md p-5  w-auto h-auto w-auto mb-10"

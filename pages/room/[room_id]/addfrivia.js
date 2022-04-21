@@ -2,6 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import BackButton from '../../../Components/BackButton/BackButton';
 import AnswerInput from '../../../Components/AnswerInput/AnswerInput';
+import Image from 'next/image';
+import AddFriviaPage from '../../../public/images/AddFrivia.png';
 
 function AddTrivia() {
   const router = useRouter();
@@ -56,13 +58,17 @@ function AddTrivia() {
   return (
     <div>
       <BackButton />
-      <div className="flex gap-y-12 flex-col mt-3  text-center">
-        <h1 className="text-text text-4xl bg-titelAndQuestion">
-          Add new Frivia
-        </h1>
-
+      <div className="flex gap-y-1 flex-col mt-1  text-center">
+        <div className="flex justify-center">
+          <Image
+            src={AddFriviaPage}
+            alt="Add frivia cat logo"
+            width="180"
+            height="180"
+          />
+        </div>
         <div>
-          <form className="flex flex-col gap-y-6" onSubmit={handleSubmit}>
+          <form className="flex flex-col gap-y-1" onSubmit={handleSubmit}>
             <label htmlFor="frivia" className="text-text ">
               Question here
             </label>

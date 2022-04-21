@@ -29,6 +29,5 @@ When you open [Frivia](https://capstone-project-woad.vercel.app/) you will start
 - Vercel
 - CSS
 
-=======
 
 

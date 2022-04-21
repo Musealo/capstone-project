@@ -4,6 +4,7 @@ import BackButton from '../../../Components/BackButton/BackButton';
 import { FaSyncAlt } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import AllPlayerPage from '../../../public/images/AllPlayer.png';
 
 function AllPlayer() {
   const router = useRouter();
@@ -32,9 +33,12 @@ function AllPlayer() {
       <BackButton />
       {users.length > 0 ? (
         <div className="text-text text-center">
-          <h1 className="text-text text-4xl bg-titelAndQuestion mb-6 mt-3">
-            All Player
-          </h1>
+          <Image
+            src={AllPlayerPage}
+            alt="All player cat logo"
+            width="180"
+            height="180"
+          />
           {users.map(user => {
             return (
               <div

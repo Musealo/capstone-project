@@ -5,6 +5,7 @@ import { FaSyncAlt } from 'react-icons/fa';
 import Image from 'next/image';
 import CurrentFrivias from '../../../public/images/CurrentFrivias.png';
 import { useRouter } from 'next/router';
+import CurrentFriviaPage from '../../../public/images/CurrentFrivias.png';
 
 function CurrentFrivia() {
   const router = useRouter();
@@ -74,9 +75,12 @@ function CurrentFrivia() {
       <BackButton />
       {frivias ? (
         <div className="text-text text-center">
-          <h1 className="text-text text-4xl bg-titelAndQuestion mb-6 mt-3">
-            Current Frivia
-          </h1>
+          <Image
+            src={CurrentFriviaPage}
+            alt="Current frivia cat logo"
+            width="180"
+            height="180"
+          />
           {frivias.map(frivia => (
             <div
               className="bg-cardBackground shadow-md p-5  w-auto h-auto w-auto mb-10"

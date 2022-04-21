@@ -15,8 +15,13 @@ export default function Room() {
     <>
       <div className="bg-mainBackground p-5 min-h-screen">
         <BackButton />
-        <div className="flex justify-center ">
-          <Image src={RoomMenu} alt="Logo with Room Menu as text" />
+        <div className="flex justify-center">
+          <Image
+            src={RoomMenu}
+            alt="Logo with Room Menu as text"
+            width="180"
+            height="180"
+          />
         </div>
         <div className="flex gap-6 flex-wrap flex-col text-center">
           <LinkButton href={`${room_id}/addfrivia`}>Add Frivia</LinkButton>

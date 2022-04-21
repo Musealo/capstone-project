@@ -35,8 +35,8 @@ export default function Home() {
           <Image
             src={MainLogo}
             alt="logo with frivia as text in it"
-            width="300"
-            height="300"
+            width="180"
+            height="180"
           />
         </div>
         <div className="flex flex-col text-center">

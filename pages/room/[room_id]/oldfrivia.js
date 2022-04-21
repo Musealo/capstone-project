@@ -43,9 +43,12 @@ function OldFrivia() {
       <BackButton />
       {frivias ? (
         <div className="text-text text-center">
-          <h1 className="text-text text-4xl bg-titelAndQuestion mb-6 mt-3">
-            Old Frivia
-          </h1>
+          <Image
+            src={LogoOldFrivia}
+            alt="Old Frivia cat logo"
+            width="180"
+            height="180"
+          />
           {frivias.map(frivia =>
             frivia.userAnswers.map(answer => (
               <div

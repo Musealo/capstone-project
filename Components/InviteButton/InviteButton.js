@@ -25,7 +25,7 @@ function InviteButton({ href, children }) {
         className="bg-btn font-medium uppercase w-60 shadow-md
         rounded-full m-auto px-6 py-2.5"
       >
-        {!copied ? 'Copy Invite Link' : 'Copied!'}
+        {!copied ? 'Copy Room ID' : 'Copied!'}
       </button>
     </>
   );

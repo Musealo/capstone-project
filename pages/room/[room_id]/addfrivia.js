@@ -47,12 +47,6 @@ function AddTrivia() {
       }),
     });
     const createdFrivia = await response.json();
-    if (response.ok) {
-      alert(`Created new frivia`);
-      event.target.reset();
-    } else {
-      alert(`Ooops — ${createdFrivia.error}`);
-    }
   }
 
   return (

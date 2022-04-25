@@ -22,7 +22,6 @@ module.exports = {
       answerButton: '#126782',
       black: '#000',
       mainBackground: '#8ECAE6',
-      shadow: '#FFB703',
     },
   },
   plugins: [],

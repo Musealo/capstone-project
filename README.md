@@ -35,7 +35,6 @@ When you open [Frivia](https://capstone-project-woad.vercel.app/) you will start
 - Clone this repository
 - Use `.env.example` to create your own `.env` inside the root folder
   - Add your `MONGODB_URI`
-  - Add NextAuth
 - Install all dependencies via `$ npm install`
 - Run app in development mode via `$ npm run dev`
 - Open http://localhost:3000/ to view it in the browser

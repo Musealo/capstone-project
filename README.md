@@ -39,6 +39,7 @@ When you open [Frivia](https://capstone-project-woad.vercel.app/) you will start
   - Add your `GITHUB_SECRET`
   - Add your `NEXTAUTH_URL`
   - Add your `NEXTAUTH_SECRET`
+- To get your `GITHUB_ID` and `GITHUB_SECRET` follow this [Guide](https://next-auth.js.org/providers/github)
 - Install all dependencies via `$ npm install`
 - Run app in development mode via `$ npm run dev`
 - Open http://localhost:3000/ to view it in the browser

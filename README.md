@@ -30,7 +30,7 @@ When you open [Frivia](https://capstone-project-woad.vercel.app/) you will start
 - Vercel
 - CSS
 
-## Project Setup
+### Project Setup
 
 - Clone this repository
 - Use `.env.example` to create your own `.env` inside the root folder

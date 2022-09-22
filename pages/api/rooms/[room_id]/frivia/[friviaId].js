@@ -22,6 +22,7 @@ export default async function handler(request, response) {
         break;
 
       case 'PATCH':
+        //Check if user was right, and push the users answer in the array userAnswers
         const frivia = await Frivia.findById(friviaId).exec();
         const returnData = { correct: false };
         let userWasCorrect = false;

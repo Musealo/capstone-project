@@ -18,6 +18,7 @@ export default async function handler(request, response) {
       case 'GET':
         if (session) {
           let frivias = await Frivia.find({
+            // find frivias of that room per request
             roomId: request.query.room_id,
           })
             .sort({ createdAt: -1 })
@@ -33,26 +34,28 @@ export default async function handler(request, response) {
               }
             });
             return response.status(200).json(frivias);
-          }
+          } // if the user asked the question then filter it out and send it on your frivia page
 
           frivias = frivias.reduce((filtered, frivia) => {
             if (frivia.userId._id.valueOf() === session.user.id) {
               return filtered;
-            }
+            } // remove frivias the user made
 
             frivia.userAnswers = frivia.userAnswers.filter(answer => {
               return answer.userId._id.valueOf() === session.user.id;
-            });
+            }); // get all answers of the user
 
             if (
               request.query.oldFrivias &&
               request.query.oldFrivias === 'true'
             ) {
               if (frivia.userAnswers.length > 0) {
+                // sends it to old frivia
                 filtered.push(frivia);
               }
             } else {
               if (frivia.userAnswers.length === 0) {
+                // sends it to current frivia
                 filtered.push(frivia);
               }
             }

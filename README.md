@@ -16,7 +16,7 @@ With Frivia you can play trivia or quizzes with your friends
 
 ## How to and navigation
 
-When you open [Frivia](https://frivias.vercel.app/) you will start at the Home page and just have to sign in to create a room or join an existing room by inserting the room id your friends have sent you previously.
+When you open Frivia you will start at the Home page and just have to sign in to create a room or join an existing room by inserting the room id your friends have sent you previously.
 
 ## Tech Stack
 
